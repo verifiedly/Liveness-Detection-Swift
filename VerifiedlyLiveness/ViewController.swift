@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set the Variables here
-        liveness.apiKEY = "DEMOhY34uf1iF24871g97ojMt7xkHUTf2u49u4fg2"
+        liveness.apiKEY = "YOUR_API_KEY"
         
         //OPTIONAL
         //Change background and button colors
