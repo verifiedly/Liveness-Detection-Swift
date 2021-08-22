@@ -34,7 +34,6 @@ class ViewController: UIViewController {
     }
     
     
-    
     @IBAction func startLiveness(_ sender: Any) {
         liveness.modalTransitionStyle = .crossDissolve
         liveness.modalPresentationStyle = .fullScreen
