@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         //OPTIONAL
         //Change background and button colors
         liveness.background_color = "#f5f6fa"
+        liveness.enable_vibration = true
         liveness.button_color = "#3742fa"
     }
 

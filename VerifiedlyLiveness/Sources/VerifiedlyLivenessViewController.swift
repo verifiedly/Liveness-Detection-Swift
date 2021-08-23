@@ -17,10 +17,11 @@ class VerifiedlyLivenessViewController: UIViewController, AVCapturePhotoCaptureD
     public var button_color = "5f27cd"
     public var background_color = "F5F5F5"
     public var apiKEY = ""
+    public var enable_vibration = false
     //Declare camera objects
-    var captureSession: AVCaptureSession!
-    var stillImageOutput: AVCapturePhotoOutput!
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+    private var captureSession: AVCaptureSession!
+    private var stillImageOutput: AVCapturePhotoOutput!
+    private var videoPreviewLayer: AVCaptureVideoPreviewLayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,12 +128,17 @@ class VerifiedlyLivenessViewController: UIViewController, AVCapturePhotoCaptureD
     
     //Capture the photo
     @objc func buttonAction(_ sender:UIButton!) {
-            if #available(iOS 11.0, *) {
-                let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-                stillImageOutput.capturePhoto(with: settings, delegate: self)
-            } else {
-                // Fallback on earlier versions
-            }
+        //Enable vibration if selected by the user
+        if enable_vibration == true {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        }
+        
+        if #available(iOS 11.0, *) {
+            let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+            stillImageOutput.capturePhoto(with: settings, delegate: self)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     //Dismiss the Liveness View
