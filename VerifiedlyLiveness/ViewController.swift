@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         
         //Enable Feedback vibration
         liveness.enable_vibration = true
+        
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
